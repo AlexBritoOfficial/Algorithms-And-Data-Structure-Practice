@@ -1,4 +1,4 @@
-package com.company.ImplementDS.MyQueue;
+package ImplementDS.MyQueue;
 
 import java.util.LinkedList;
 import java.util.Queue;

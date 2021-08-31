@@ -1,4 +1,4 @@
-package com.company.ImplementDS;
+package ImplementDS;
 
 import java.util.Collection;
 

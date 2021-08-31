@@ -1,4 +1,4 @@
-package com.company.Sorting;
+package Sorting;
 
 public class RadixSort {
     final static int BASE = 10;

@@ -1,4 +1,4 @@
-package com.company.ImplementDS.MyGraph;
+package ImplementDS.MyGraph;
 
 import java.util.List;
 

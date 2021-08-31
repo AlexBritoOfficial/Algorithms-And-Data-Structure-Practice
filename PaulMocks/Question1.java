@@ -1,4 +1,4 @@
-package com.company.PaulMocks;
+package PaulMocks;
 
 public class Question1 {
 

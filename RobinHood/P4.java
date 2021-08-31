@@ -1,4 +1,4 @@
-package com.company.RobinHood;
+package RobinHood;
 
 import java.sql.Array;
 import java.util.ArrayList;

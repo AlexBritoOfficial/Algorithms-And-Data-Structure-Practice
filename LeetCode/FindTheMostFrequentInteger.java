@@ -1,4 +1,4 @@
-package com.company.LeetCode;
+package LeetCode;
 
 public class FindTheMostFrequentInteger {
     public static void main(String[] args) {

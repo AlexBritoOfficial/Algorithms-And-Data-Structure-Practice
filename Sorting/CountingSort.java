@@ -1,4 +1,4 @@
-package com.company.Sorting;
+package Sorting;
 
 import jdk.jfr.Unsigned;
 

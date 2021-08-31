@@ -1,10 +1,11 @@
-package com.company.Sorting;
+package Sorting;
 
 public class QuickSort {
 
     public static void main(String[] args) {
-        /*** Insertion Sort ***/
-        int [] array = {5,2,9,3,8,4,0,1,7};
+        /*** Quick Sort ***/
+//        int [] array = {5,2,9,3,8,4,0,1,7};
+        int [] array = {5,2,4,6,1,3};
         System.out.print("Unsorted: ");
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");

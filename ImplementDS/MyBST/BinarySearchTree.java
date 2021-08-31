@@ -1,7 +1,9 @@
-package com.company.ImplementDS.MyBST;
+package ImplementDS.MyBST;
 
-import com.company.ImplementDS.MyQueue.MyQueue;
-import com.company.ImplementDS.Tree;
+
+
+import ImplementDS.MyQueue.MyQueue;
+import ImplementDS.Tree;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -296,5 +298,17 @@ public class BinarySearchTree<E extends Comparable<E>> implements Tree<E> {
                 myQueue.enqueue(treeNode.right);
             }
         }
+    }
+
+    public static void main(String[] args) {
+        final int min = 1;
+        final int max = 300;
+        final int SIZE = 10;
+        Integer [] array = {238, 88, 114, 172, 184, 103, 60, 50, 246, 28};
+
+        BinarySearchTree<Integer> binarySearchTree = new BinarySearchTree<>(array);
+        binarySearchTree.delete(114);
+
+
     }
 }

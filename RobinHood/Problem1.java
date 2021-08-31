@@ -1,4 +1,4 @@
-package com.company.RobinHood;
+package RobinHood;
 
 public class Problem1 {
 

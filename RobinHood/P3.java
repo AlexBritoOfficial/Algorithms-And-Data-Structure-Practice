@@ -1,4 +1,4 @@
-package com.company.RobinHood;
+package RobinHood;
 
 import java.util.HashSet;
 import java.util.Set;

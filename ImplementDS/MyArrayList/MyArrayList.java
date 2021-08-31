@@ -1,6 +1,6 @@
-package com.company.ImplementDS.MyArrayList;
+package ImplementDS.MyArrayList;
 
-import com.company.ImplementDS.MyList;
+import ImplementDS.MyList;
 
 import java.util.Arrays;
 import java.util.Collection;

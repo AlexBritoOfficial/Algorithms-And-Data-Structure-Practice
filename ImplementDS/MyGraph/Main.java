@@ -1,6 +1,6 @@
-package com.company.ImplementDS.MyGraph;
+package ImplementDS.MyGraph;
 
-import java.util.List;
+import ImplementDS.MyGraph.Graph;
 
 public class Main {
     public static void main(String[] args) {

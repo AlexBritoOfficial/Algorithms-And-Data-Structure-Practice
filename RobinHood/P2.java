@@ -1,5 +1,4 @@
-package com.company.RobinHood;
-
+package RobinHood;
 
 
 /*****

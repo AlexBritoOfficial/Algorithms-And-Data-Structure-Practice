@@ -1,4 +1,6 @@
-package com.company.LeetCode;
+package LeetCode;
+
+import java.util.List;
 
 public class ListNode {
     int val;
@@ -14,5 +16,8 @@ public class ListNode {
    public ListNode(int val, ListNode next) {
         this.val = val;
         this.next = next;
+    }
+
+    public static void main(String[] args) {
     }
 }

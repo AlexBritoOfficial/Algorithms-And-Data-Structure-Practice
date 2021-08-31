@@ -1,6 +1,7 @@
-package com.company.ImplementDS.MyLinkedList;
+package ImplementDS.MyLinkedList;
 
-import com.company.ImplementDS.MyList;
+
+import ImplementDS.MyList;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -44,7 +45,7 @@ public class MyLinkedList<E> implements MyList<E> {
         Node newNode = new Node(e);
         // Link new nodes Node next member to point to the current head for the swap.
         newNode.next = head;
-        newNode.previous = head;
+//        newNode.previous = head;
         // Assign new node to point to head.
         head = newNode;
         // Increment size list
@@ -286,7 +287,7 @@ public class MyLinkedList<E> implements MyList<E> {
          **/
         E data;
         Node<E> next;
-        Node<E> previous;
+//        Node<E> previous;
 
         public Node(E data) {
             this.data = data;

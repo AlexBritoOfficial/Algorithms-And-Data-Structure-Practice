@@ -1,4 +1,4 @@
-package com.company.DataStrcutures2000;
+package DataStructures2000;
 
 public class KWArrayList<E>{
     static int INITIAL_CAPACITY = 16;

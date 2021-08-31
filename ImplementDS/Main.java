@@ -1,6 +1,6 @@
-package com.company.ImplementDS;
+package ImplementDS;
 
-import com.company.ImplementDS.MyBST.BinarySearchTree;
+import ImplementDS.MyBST.BinarySearchTree;
 
 import java.util.Iterator;
 
