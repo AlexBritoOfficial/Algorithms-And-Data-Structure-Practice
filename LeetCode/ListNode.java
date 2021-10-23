@@ -17,7 +17,4 @@ public class ListNode {
         this.val = val;
         this.next = next;
     }
-
-    public static void main(String[] args) {
-    }
 }

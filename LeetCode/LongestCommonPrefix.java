@@ -1,6 +1,7 @@
 package LeetCode;
 
 import java.util.*;
+// NOT SOLVED ON MY OWN !!!
 
 public class LongestCommonPrefix {
 
