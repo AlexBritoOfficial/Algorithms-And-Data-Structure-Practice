@@ -1,7 +1,6 @@
 package ImplementDS.MyBST;
 
 
-
 import ImplementDS.MyQueue.MyQueue;
 import ImplementDS.Tree;
 
@@ -47,15 +46,26 @@ public class BinarySearchTree<E extends Comparable<E>> implements Tree<E> {
      **/
     @Override
     public boolean insert(E e) {
-        // Create root node if root is null
+
+        // STEPS INVOLVED.
+
+        // 1) Create root node if root is null
         if (root == null) {
             root = createNewNode(e);
         }
-        // Else locate the parent node
+
+        // 2) Else locate the parent node
         else {
+
+            // We want to create a variable named parent that will be responsible for keeping track of the current nodes parent/child relationship.
+            // Note: The starting point for the insertion method begins at the root of the tree.
+            // Thus, this is why set the TreeNode<E> parent variable to be equal to null. Considering, that our root element doesn't extend from a parent node.
             TreeNode<E> parent = null;
             TreeNode<E> current = root;
 
+            // Traverse through the tree.
+            // For each iteration, in the while loop we want to check the value of the node that's being inserted against the current node being traversed.
+            // If the inserted node is smaller than the the current node being traversed. We set the current node to be equal as the parent
             while (current != null) {
 
                 if (e.compareTo(current.element) < 0) {
@@ -65,6 +75,7 @@ public class BinarySearchTree<E extends Comparable<E>> implements Tree<E> {
                     parent = current;
                     current = current.right;
                 } else
+                    // A node of the same value exists already
                     return false;
             }
 
@@ -84,6 +95,8 @@ public class BinarySearchTree<E extends Comparable<E>> implements Tree<E> {
         TreeNode<E> parent = null;
         TreeNode<E> current = root;
 
+
+        // Find the node to be deleted
         while (current != null) {
             if (e.compareTo(current.element) < 0) {
                 parent = current;
@@ -125,9 +138,15 @@ public class BinarySearchTree<E extends Comparable<E>> implements Tree<E> {
             // Replace the element in current by the element in rightMost
             current.element = rightMost.element;
 
+
+            // Check if the parentOfRightMost.right node is equal to the rightMost node.
+
+            // If true, assign parentRightMostNode.right equal to rightMost.left
             if (parentOfRightMost.right == rightMost) {
                 parentOfRightMost.right = rightMost.left;
-            } else
+            }
+            // If false, parentRightMostNode.left equal to rightMost.left
+            else
                 parentOfRightMost.left = rightMost.left;
         }
         size--;
@@ -165,7 +184,7 @@ public class BinarySearchTree<E extends Comparable<E>> implements Tree<E> {
     }
 
     // Inner class InorderIterator
-    private class InorderIterator implements Iterator<E>{
+    private class InorderIterator implements Iterator<E> {
         // Store elements in a list
         private ArrayList<E> list = new ArrayList<>();
 
@@ -175,35 +194,41 @@ public class BinarySearchTree<E extends Comparable<E>> implements Tree<E> {
             inorder(); // Traverse binary tree and store elements in the list.
         }
 
-        private void inorder(){
+        private void inorder() {
             inorder(root);
         }
 
-        /** Inorder traversal from the root
-         * @param root**/
-        private void inorder(TreeNode<E> root){
+        /**
+         * Inorder traversal from the root
+         *
+         * @param root
+         **/
+        private void inorder(TreeNode<E> root) {
             if (root == null) return;
             inorder(root.left);
             list.add(root.element);
             inorder(root.right);
         }
 
-        @Override /** More elements for traversing? **/
+        @Override
+        /** More elements for traversing? **/
         public boolean hasNext() {
-            if(current < list.size()){
+            if (current < list.size()) {
                 return true;
             }
             return false;
         }
 
-        @Override /** Get the current element and move to the next **/
+        @Override
+        /** Get the current element and move to the next **/
         public E next() {
             return list.get(current++);
         }
 
-        @Override /** Remove the current element **/
+        @Override
+        /** Remove the current element **/
         public void remove() {
-            if(current == 0){
+            if (current == 0) {
                 throw new IllegalArgumentException();
             }
 
@@ -226,15 +251,6 @@ public class BinarySearchTree<E extends Comparable<E>> implements Tree<E> {
         return new TreeNode<>(e);
     }
 
-    public static class TreeNode<E> {
-        protected E element;
-        protected TreeNode<E> left;
-        protected TreeNode<E> right;
-
-        public TreeNode(E element) {
-            this.element = element;
-        }
-    }
 
     public void inOrder() {
         inOrder(root);
@@ -247,19 +263,21 @@ public class BinarySearchTree<E extends Comparable<E>> implements Tree<E> {
         inOrder(root.right);
     }
 
-    public void postOrder(){
+    public void postOrder() {
         postOrder(root);
     }
 
-    /** Recursively visits it's current nodes left tree, then the current nodes right, and finally the current node itself**/
+    /**
+     * Recursively visits it's current nodes left tree, then the current nodes right, and finally the current node itself
+     **/
     private void postOrder(TreeNode<E> root) {
-        if(root == null) return;
+        if (root == null) return;
         postOrder(root.left);
         postOrder(root.right);
         System.out.print(root.element + " ");
     }
 
-    public void preOrder(){
+    public void preOrder() {
         preOrder(root);
     }
 
@@ -273,7 +291,7 @@ public class BinarySearchTree<E extends Comparable<E>> implements Tree<E> {
         MyQueue<TreeNode<E>> myQueue = new MyQueue<>();
         myQueue.enqueue(root);
 
-        while(!myQueue.isEmpty()){
+        while (!myQueue.isEmpty()) {
             /**
              * while queue is not empty
              *
@@ -284,30 +302,33 @@ public class BinarySearchTree<E extends Comparable<E>> implements Tree<E> {
              *  if(treenode.left != null ){
              *     myQueue.add(treeNode.left);
              *  }
-             * 
+             *
              *  if(treenode.right != null ){
              *   myQueue.add(treeNode.right);
              *  }
              * ***/
             TreeNode<E> treeNode = myQueue.dequeue();
             System.out.print(treeNode.element + " ");
-            if(treeNode.left != null ){
+            if (treeNode.left != null) {
                 myQueue.enqueue(treeNode.left);
             }
-            if(treeNode.right != null ){
+            if (treeNode.right != null) {
                 myQueue.enqueue(treeNode.right);
             }
         }
     }
 
+
     public static void main(String[] args) {
-        final int min = 1;
-        final int max = 300;
-        final int SIZE = 10;
-        Integer [] array = {238, 88, 114, 172, 184, 103, 60, 50, 246, 28};
+//        final int min = 1;
+//        final int max = 300;
+//        final int SIZE = 10;
+        // Integer [] array = {20, 10, 40, 16, 30, 80, 27, 50, 246, 28, 26};
+        Integer[] array = {20, 40, 35, 45};
+
 
         BinarySearchTree<Integer> binarySearchTree = new BinarySearchTree<>(array);
-        binarySearchTree.delete(114);
+        binarySearchTree.delete(40);
 
 
     }

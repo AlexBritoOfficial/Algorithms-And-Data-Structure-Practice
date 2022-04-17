@@ -1,12 +1,16 @@
 package ImplementDS;
 
 import ImplementDS.MyBST.BinarySearchTree;
+import ImplementDS.MyStack.MyStack;
 
 import java.util.Iterator;
 
-public class Main<E> {
+public class Main<E>  {
 
-    public static void main(String[] args) {
+
+
+
+    public static void main(String[] args){
        /**
         /**
         *          60
@@ -18,8 +22,9 @@ public class Main<E> {
               56  59
         **/
 //        Double [] l1 = {60.0,55.0,100.0,45.0,57.0,67.0,107.0};
-        Integer [] l1 = {60,55,100,45,57,67,107};
-        BinarySearchTree root = new BinarySearchTree(l1);
+//        Integer [] l1 = {60,55,100,45,57,67,107};
+
+//        BinarySearchTree root = new BinarySearchTree(l1);
 //        root.insert(56.0);
 //        root.insert(59.0);
 //        root.delete(57.0);
@@ -34,10 +39,10 @@ public class Main<E> {
 //        root.insert(44.8);
 //        root.insert(42.9);
 //        root.breadthFirstSearch();
-        Iterator<Integer> iterator = root.iterator();
-        while(iterator.hasNext()){
-            System.out.print(iterator.next() + " ");
-        }
+//        Iterator<Integer> iterator = root.iterator();
+//        while(iterator.hasNext()){
+//            System.out.print(iterator.next() + " ");
+//        }
 
 //      TreeNode.insert(root,101);
 //      System.out.println();
@@ -54,5 +59,21 @@ public class Main<E> {
 //      while(listIterator.hasNext()){
 //        System.out.println("Element: " + listIterator.next());
 //      }
+
+        MyStack myStack = new MyStack(5);
+        myStack.push(3);
+        myStack.push(4);
+        myStack.push(5);
+
+        try {
+            myStack.pop();
+            myStack.pop();
+            myStack.pop();
+            myStack.pop();
+        } catch (Exception exception){
+            System.out.println(exception.getMessage());
+        }
+
+
     }
 }

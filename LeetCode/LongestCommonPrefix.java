@@ -30,14 +30,21 @@ public class LongestCommonPrefix {
 
 
     public static void main(String[] args) {
-        //String[] strings = {"flower", "flow", "flight"};
+        String[] strings = {"flower", "flow", "flight"};
+        Arrays.sort(strings);
+
+        for (int i = 0; i < strings.length; i++) {
+            System.out.print(strings[i] + " ");
+        }
+
+
         //String[] strings = {"ab", "a"};
         //String[] strings = {"cir", "car"};
         //String[] strings = {"caa", "", "a", "acb"};
-        String[] strings = {"caa", "", "a", "acb"};
+        //String[] strings = {"caa", "", "a", "acb"};
         //String[] strings = {"cc", "cc"};
 
-        System.out.println(longestCommonPrefix(strings));
+       // System.out.println(longestCommonPrefix(strings));
     }
 
     public static String longestCommonPrefix(String[] strs) {

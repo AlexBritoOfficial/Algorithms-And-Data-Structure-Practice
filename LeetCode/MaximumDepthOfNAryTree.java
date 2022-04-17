@@ -1,8 +1,6 @@
 package LeetCode;
 
-import javax.swing.plaf.IconUIResource;
 import java.util.*;
-import java.util.concurrent.ExecutionException;
 
 public class MaximumDepthOfNAryTree {
 
@@ -12,6 +10,9 @@ public class MaximumDepthOfNAryTree {
     //
     //Nary-Tree input serialization is represented in their level order traversal, each group of children is separated by the null value (See examples).
 
+    //static int depth = 0;
+    //static int counter = 0;
+    //static List visitedNodes = new ArrayList<Node>();
 
     public static void main(String[] args) {
 
@@ -30,58 +31,44 @@ public class MaximumDepthOfNAryTree {
 
         //[1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14]
 
-        //Node root = new Node(1, Arrays.asList(new Node(3, Arrays.asList(new Node(5), new Node(6))), new Node(2), new Node(4)));
-//        Node root = new Node(1, Arrays.asList(new Node(2),
-//                new Node(3, Arrays.asList(new Node(6), new Node(7, Arrays.asList(new Node(11, Arrays.asList(new Node(14))),
+        Node root = new Node(1, Arrays.asList(new Node(3, Arrays.asList(new Node(5), new Node(6))), new Node(2), new Node(4)));
+
+//
+//        Node root = new Node(1,
+//                Arrays.asList(new Node(2),
+//                        new Node(3, Arrays.asList(new Node(6), new Node(7, Arrays.asList(new Node(11, Arrays.asList(new Node(14))))))),
 //                        new Node(4, Arrays.asList(new Node(8, Arrays.asList(new Node(12))))),
-//                        new Node(5, Arrays.asList(new Node(9, Arrays.asList(new Node(13))), new Node(10)))))))));
+//                        new Node(5, Arrays.asList(new Node(9, Arrays.asList(new Node(13))), new Node(10)))));
 
-        Node root = new Node(1,
-                Arrays.asList(new Node(2),
-                        new Node(3 , Arrays.asList(new Node(6), new Node(7, Arrays.asList(new Node(11, Arrays.asList(new Node(14))))))),
-                        new Node(4, Arrays.asList(new Node(8, Arrays.asList(new Node(12))))),
-                        new Node(5, Arrays.asList(new Node(9, Arrays.asList(new Node(13))), new Node(10)))));
-
-        maxDepth(root);
+        System.out.println(maxDepth(root));
 
     }
 
-    public static int maxDepth(Node root) {
-        return maxDepth(root, 0).val;
-    }
 
-    public static Node maxDepth(Node root, int counter) {
+    public static int maxDepth(Node root){
 
-        System.out.print(root.val + " ");
-        Map<Node, Boolean> visitedChildrenNodes = new HashMap<>();
 
-        if (root.children == null) {
-            return root;
+        if(root.children == null) {
+            return 0;
         }
 
-        Node parent = root;
-        Iterator<Node> iterator = root.children.iterator();
+        //already height is 1 if node is not null
+        int height = 1;
 
-        while (iterator.hasNext()) {
-            Node node = (Node) iterator.next();
-            visitedChildrenNodes.put(node, true);
-            maxDepth(node, counter);
+        for(Node node : root.children) {
+
+            //track max height.
+            height = Math.max(height, 1 + maxDepth(node)); //1+maxDepth(node) will calculate depth recursively.
         }
 
-        return new Node(counter);
+        return height;
     }
 
-    public static Node returnUnvisitedChildNode(Node node, Map<Node, Boolean> visitedChildrenNodes) {
-        Iterator<Node> iterator = node.children.iterator();
-
-        while (iterator.hasNext()) {
-            Node unVisitedNode = iterator.next();
-            if (visitedChildrenNodes.containsKey(unVisitedNode)) {
-                continue;
-            }
-            return unVisitedNode;
-        }
-
-        return null;
-    }
 }
+
+
+
+
+
+
+

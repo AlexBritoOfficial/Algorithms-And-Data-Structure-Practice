@@ -15,6 +15,16 @@ public class Main {
 
         System.out.println(numprimes);
 
+
+        String[] names = {"Alex", "Nate", "Cool."};
+        printArray(names);
+
+    }
+
+    public static void printArray(String... a ){
+        for (int i = 0; i < a.length; i++) {
+            System.out.println(a[i] + " ");
+        }
     }
 
     private static int is_prime(int n)
