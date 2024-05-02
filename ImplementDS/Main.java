@@ -60,13 +60,12 @@ public class Main<E>  {
 //        System.out.println("Element: " + listIterator.next());
 //      }
 
-        MyStack myStack = new MyStack(5);
+        MyStack myStack = new MyStack();
         myStack.push(3);
         myStack.push(4);
         myStack.push(5);
 
         try {
-            myStack.pop();
             myStack.pop();
             myStack.pop();
             myStack.pop();
